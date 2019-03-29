@@ -1,0 +1,26 @@
+.MODEL SMALL
+.STACK 100H
+.DATA 
+S1 DB 'SUST $'
+S2 DB 'SWE $'
+.CODE  
+
+MAIN PROC
+    
+    
+    MOV AX,@DATA   ;INITIALIZATION OF DATA SEGMENT
+    MOV DS,AX
+    
+    LEA DX,S1
+    MOV AH,9
+    INT 21H         ;LOAD EFFECTIVE ADDRESS
+    
+    MOV AH,2
+    MOV DL,10
+    INT 21H         ;NEWLINE
+    MOV DL,13
+    INT 21H
+    
+    LEA DX,S2
+    MOV AH,9        ;LOAD EFFECTIVE ADDRESS
+    INT 21H
